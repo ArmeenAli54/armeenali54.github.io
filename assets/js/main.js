@@ -456,7 +456,7 @@
       gCore = { x: cx, y: cy, r: gH * 0.55, hue: 274, alpha: 0.13 };
       gCore2 = { x: cx2, y: cy2, r: gH * 0.34, hue: 284, alpha: 0.1 };
 
-      var count = Math.min(Math.floor((gW * gH) / 2600), 700);
+      var count = Math.min(Math.floor((gW * gH) / 1900), 1100);
       gStars = [];
       for (var i = 0; i < count; i++) {
         var x, y;

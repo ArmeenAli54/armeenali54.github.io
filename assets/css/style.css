@@ -562,22 +562,40 @@ html[data-theme="light"] .section--alt {
 .hero__portrait-frame {
   position: relative;
   width: 100%;
-  max-width: 360px;
-  border-radius: 26px;
-  padding: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow), var(--glass-highlight);
-  backdrop-filter: blur(var(--glass-blur)) saturate(130%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(130%);
+  max-width: 380px;
+}
+.hero__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -34px;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 62% 58% at 50% 44%,
+    rgba(168, 85, 247, 0.4),
+    rgba(124, 58, 237, 0.16) 52%,
+    transparent 74%
+  );
+  filter: blur(6px);
+  pointer-events: none;
 }
 .hero__portrait-frame img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
-  border-radius: 18px;
   display: block;
   object-fit: cover;
-  background: var(--bg-soft);
+  -webkit-mask-image: radial-gradient(
+    ellipse 66% 60% at 50% 44%,
+    #000 46%,
+    transparent 76%
+  );
+  mask-image: radial-gradient(
+    ellipse 66% 60% at 50% 44%,
+    #000 46%,
+    transparent 76%
+  );
 }
 
 .hero__eyebrow {
