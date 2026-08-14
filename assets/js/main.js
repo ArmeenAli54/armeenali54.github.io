@@ -433,7 +433,7 @@
       galaxy.style.height = gH + "px";
       ctx.setTransform(gDpr, 0, 0, gDpr, 0, 0);
 
-      var count = Math.min(Math.floor((gW * gH) / 5200), 220);
+      var count = Math.min(Math.floor((gW * gH) / 4200), 260);
       gStars = [];
       for (var i = 0; i < count; i++) {
         var rnd = Math.random();
@@ -455,16 +455,16 @@
           y: Math.random() * gH,
           r: Math.random() * 260 + 160,
           hue: n % 2 === 0 ? 271 : 187,
-          alpha: Math.random() * 0.035 + 0.02,
+          alpha: Math.random() * 0.045 + 0.035,
           dx: (Math.random() - 0.5) * 0.25,
           dy: (Math.random() - 0.5) * 0.18,
         });
       }
 
       gAuroras = [
-        { hue: 271, baseY: gH * 0.22, amp: 62, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.38 },
-        { hue: 187, baseY: gH * 0.4, amp: 50, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.34 },
-        { hue: 265, baseY: gH * 0.55, amp: 44, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.26 },
+        { hue: 271, baseY: gH * 0.22, amp: 62, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.55 },
+        { hue: 187, baseY: gH * 0.4, amp: 50, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.48 },
+        { hue: 265, baseY: gH * 0.55, amp: 44, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.38 },
       ];
     }
 
@@ -523,7 +523,7 @@
       for (var s = 0; s < gStars.length; s++) {
         var st = gStars[s];
         var tw = 0.5 + 0.5 * Math.sin(sec * st.speed + st.base);
-        var a = st.twinkle * (0.45 + 0.55 * tw);
+        var a = st.twinkle * (0.55 + 0.45 * tw);
         ctx.beginPath();
         ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
         ctx.fillStyle = st.hue

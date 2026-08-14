@@ -11,9 +11,9 @@
 
   --bg: #090909;
   --bg-soft: #0d0d0d;
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-hover: rgba(255, 255, 255, 0.07);
-  --surface-solid: #131313;
+  --surface: #16161b;
+  --surface-hover: #1f1f27;
+  --surface-solid: #14141a;
   --border: rgba(255, 255, 255, 0.09);
   --border-strong: rgba(255, 255, 255, 0.16);
 
@@ -66,9 +66,9 @@ html[data-theme="light"] {
   pointer-events: none;
   background: radial-gradient(
     ellipse 90% 85% at 50% 42%,
-    rgba(9, 9, 9, 0.72),
-    rgba(9, 9, 9, 0.5) 55%,
-    rgba(9, 9, 9, 0.62) 100%
+    rgba(9, 9, 9, 0.62),
+    rgba(9, 9, 9, 0.42) 55%,
+    rgba(9, 9, 9, 0.55) 100%
   );
 }
 html[data-theme="light"] #galaxy,
