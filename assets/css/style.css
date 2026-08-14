@@ -536,6 +536,32 @@ html[data-theme="light"] .section--alt {
   overflow: hidden;
   padding-top: var(--nav-h);
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 110% 90% at 50% 45%,
+    transparent 45%,
+    rgba(10, 6, 24, 0.5) 100%
+  );
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+      to right,
+      rgba(10, 6, 24, 0.72),
+      rgba(10, 6, 24, 0.25) 48%,
+      transparent 62%
+    ),
+    linear-gradient(to top, rgba(10, 6, 24, 0.85), transparent 42%);
+}
 
 .hero__inner {
   position: relative;
@@ -545,7 +571,7 @@ html[data-theme="light"] .section--alt {
 
 .hero__grid-layout {
   display: grid;
-  grid-template-columns: 1fr minmax(280px, 380px);
+  grid-template-columns: 1fr minmax(300px, 440px);
   align-items: center;
   gap: 56px;
 }
@@ -562,13 +588,38 @@ html[data-theme="light"] .section--alt {
 .hero__portrait-frame {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: 440px;
 }
 .hero__portrait-frame img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 52%,
+    rgba(0, 0, 0, 0.75) 68%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 52%,
+    rgba(0, 0, 0, 0.75) 68%,
+    transparent 100%
+  );
+}
+
+html[data-theme="light"] .hero__portrait-frame img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
+}
+html[data-theme="light"] .hero::before,
+html[data-theme="light"] .hero::after {
+  background: none;
+}
+html[data-theme="light"] .hero__title {
+  color: var(--text);
+  text-shadow: none;
 }
 
 .hero__eyebrow {
@@ -581,11 +632,20 @@ html[data-theme="light"] .section--alt {
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 7.5vw, 4.6rem);
+  font-size: clamp(3rem, 8.5vw, 5.4rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
+  color: #f4f1ff;
+  text-shadow: 0 6px 60px rgba(10, 6, 24, 0.75), 0 0 40px rgba(168, 85, 247, 0.3);
+}
+.hero__title .text-gradient {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: inherit;
 }
 
 .text-gradient {
