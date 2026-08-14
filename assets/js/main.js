@@ -416,6 +416,8 @@
     var gRunning = false;
     var gRaf = null;
     var gStars = [];
+    var gNebulas = [];
+    var gCore = null;
     var gTime = 0;
     var gW = 0;
     var gH = 0;
@@ -430,16 +432,47 @@
       galaxy.style.height = gH + "px";
       ctx.setTransform(gDpr, 0, 0, gDpr, 0, 0);
 
-      var count = Math.min(Math.floor((gW * gH) / 6000), 220);
+      var cx = gW * 0.5;
+      var cy = gH * 0.4;
+      var tilt = -0.32;
+      var ca = Math.cos(tilt);
+      var sa = Math.sin(tilt);
+
+      gCore = { x: cx, y: cy, r: gH * 0.5, hue: 268, alpha: 0.1 };
+
+      var count = Math.min(Math.floor((gW * gH) / 5500), 240);
       gStars = [];
       for (var i = 0; i < count; i++) {
+        var x, y;
+        if (Math.random() < 0.62) {
+          var along = (Math.random() - 0.5) * gW * 1.35;
+          var across = (Math.random() - 0.5) * gH * 0.17;
+          x = cx + along * ca - across * sa;
+          y = cy + along * sa + across * ca;
+        } else {
+          x = Math.random() * gW;
+          y = Math.random() * gH;
+        }
         gStars.push({
-          x: Math.random() * gW,
-          y: Math.random() * gH,
-          r: Math.random() * 1.1 + 0.3,
+          x: x,
+          y: y,
+          r: Math.random() * 1.15 + 0.3,
           base: Math.random() * Math.PI * 2,
           speed: Math.random() * 0.5 + 0.15,
           alpha: Math.random() * 0.3 + 0.18,
+        });
+      }
+
+      gNebulas = [];
+      for (var n = 0; n < 5; n++) {
+        gNebulas.push({
+          x: Math.random() * gW,
+          y: Math.random() * gH,
+          r: Math.random() * 300 + 220,
+          hue: 252 + Math.random() * 26,
+          alpha: Math.random() * 0.04 + 0.04,
+          dx: (Math.random() - 0.5) * 0.12,
+          dy: (Math.random() - 0.5) * 0.1,
         });
       }
     }
@@ -447,13 +480,32 @@
     function drawGalaxy(now) {
       ctx.clearRect(0, 0, gW, gH);
       var sec = now / 1000;
-      for (var i = 0; i < gStars.length; i++) {
-        var st = gStars[i];
+
+      var core = gCore;
+      var cg = ctx.createRadialGradient(core.x, core.y, 0, core.x, core.y, core.r);
+      cg.addColorStop(0, "hsla(" + core.hue + ", 52%, 54%, " + core.alpha + ")");
+      cg.addColorStop(1, "hsla(" + core.hue + ", 52%, 54%, 0)");
+      ctx.fillStyle = cg;
+      ctx.fillRect(core.x - core.r, core.y - core.r, core.r * 2, core.r * 2);
+
+      for (var i = 0; i < gNebulas.length; i++) {
+        var nb = gNebulas[i];
+        var nx = nb.x + Math.sin(sec * nb.dx * 2) * 20;
+        var ny = nb.y + Math.cos(sec * nb.dy * 2) * 16;
+        var ng = ctx.createRadialGradient(nx, ny, 0, nx, ny, nb.r);
+        ng.addColorStop(0, "hsla(" + nb.hue + ", 52%, 56%, " + nb.alpha + ")");
+        ng.addColorStop(1, "hsla(" + nb.hue + ", 52%, 56%, 0)");
+        ctx.fillStyle = ng;
+        ctx.fillRect(nx - nb.r, ny - nb.r, nb.r * 2, nb.r * 2);
+      }
+
+      for (var s = 0; s < gStars.length; s++) {
+        var st = gStars[s];
         var tw = 0.6 + 0.4 * Math.sin(sec * st.speed + st.base);
         ctx.globalAlpha = st.alpha * tw;
         ctx.beginPath();
         ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
-        ctx.fillStyle = "#eef1f6";
+        ctx.fillStyle = st.r > 1.0 ? "#cfbff0" : "#eef1f6";
         ctx.fill();
       }
       ctx.globalAlpha = 1;
