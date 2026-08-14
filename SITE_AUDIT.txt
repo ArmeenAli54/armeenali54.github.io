@@ -1,0 +1,88 @@
+========================================================================
+SITE AUDIT — Armeen Ali Soomro Portfolio
+========================================================================
+Date:       2026-08-14
+Scope:      https://armeenali54.github.io/ (local build)
+Method:     Automated headless browser tests (desktop 1280x800 and mobile
+            390x844), external link checks, and code review.
+
+-----------------------------------------------------------------------
+SUMMARY
+-----------------------------------------------------------------------
+Status:     12 checks performed, 7 issues found, 7 fixed. 0 known
+            defects remaining. No console errors, no failed requests.
+
+-----------------------------------------------------------------------
+ISSUES FOUND AND FIXED
+-----------------------------------------------------------------------
+1. [FIXED] Mobile navigation menu only 71px tall (did not cover screen).
+   Root cause: the menu was nested inside .site-header, whose
+   backdrop-filter makes the header the containing block for the menu's
+   position: fixed; inset: 0, so the menu collapsed to the header height.
+   Fix: moved the mobile menu out of the header to a direct child of
+   <body>. Verified full-screen (844px) on 390x844 viewport.
+
+2. [FIXED] Scroll progress bar never moved (stuck at 0px).
+   Root cause: the onScroll handler was only invoked once on load and
+   never attached to the window scroll event, so the progress bar, header
+   scroll state, and back-to-top button never updated.
+   Fix: registered the handler with window.addEventListener("scroll", ...,
+   { passive: true }).
+
+3. [FIXED] Scroll progress bar width logic applied twice.
+   The handler set both the element width and a --p custom property used
+   by ::after, so the fill understated progress and was invisible at the
+   top of the page. Fix: keep only the --p custom property; the ::after
+   now reads width: var(--p, 0%).
+
+4. [FIXED] Two <h1> elements on the page (intro splash + hero), which
+   produces an invalid document outline. Fix: intro splash name is now a
+   div (was h1).
+
+5. [FIXED] Galaxy dimmer overlay (.galaxy-overlay) was styled in CSS but
+   missing from the HTML, so the background dimming never rendered.
+   Fix: added the overlay div next to the canvas.
+
+6. [FIXED] Contact form fields squeezed into 125px columns on mobile.
+   Fix: the form row now stacks to a single column below 640px.
+
+7. [FIXED] Focus not managed for overlays (accessibility).
+   Opening the mobile menu / modals now moves focus into the dialog and
+   restores focus to the triggering control on close. theme-color meta
+   also corrected to match the background (#0a0a0c).
+
+-----------------------------------------------------------------------
+VERIFIED — NO ISSUE
+-----------------------------------------------------------------------
+- All 27 certificate images, profile photo, and resume PDF resolve.
+- All external links (GitHub repos, demo, LinkedIn, profile) reachable;
+  LinkedIn returns HTTP 405 for HEAD requests (blocks bots) but opens
+  normally in browsers — not a defect.
+- Theme toggle works in both directions; galaxy/overlay correctly hidden
+  in light mode.
+- Modal open/close (cert lightbox + resume viewer) works; Escape closes;
+  background scroll locked while open.
+- Mobile menu opens/closes, links navigate, Escape closes.
+- Form validation blocks empty submission; AJAX submit path wired.
+- Animated counters reach targets (4 / 23 / 8).
+- Exactly one <h1>; 9 sections; 8 projects; 23 certifications listed.
+- Typing effect, reveal-on-scroll, scrollspy active link all work.
+- No horizontal overflow on desktop or mobile; all .reveal elements
+  become visible.
+- No console errors or page errors; no broken image/script requests.
+
+-----------------------------------------------------------------------
+DESIGN NOTES (not bugs)
+-----------------------------------------------------------------------
+- Hero presents five equal-weight primary buttons (View Projects, View
+  Resume, Resume download, LinkedIn, GitHub). Intentional per design
+  request; consider visually de-emphasizing secondary actions later.
+- External links open in new tabs with rel="noopener".
+
+-----------------------------------------------------------------------
+VERIFICATION METHOD
+-----------------------------------------------------------------------
+Headless Chromium via Puppeteer against the local build; console/page
+error capture; element geometry assertions (menu height, progress width,
+grid columns, scroll state); DOM/ARIA checks; full-page scroll pass to
+trigger reveal, scrollspy, and back-to-top logic.

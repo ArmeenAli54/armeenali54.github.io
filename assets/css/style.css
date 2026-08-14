@@ -248,7 +248,7 @@ ul {
   content: "";
   display: block;
   height: 100%;
-  width: 0%;
+  width: var(--p, 0%);
   background: var(--gradient);
   transition: width 0.08s linear;
 }
@@ -1805,6 +1805,9 @@ html[data-theme="light"] .footer {
     padding: 22px;
   }
   .projects {
+    grid-template-columns: 1fr;
+  }
+  .message__row {
     grid-template-columns: 1fr;
   }
   .footer__inner {

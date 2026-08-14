@@ -44,10 +44,10 @@
     var max = doc.scrollHeight - window.innerHeight;
     var pct = max > 0 ? (y / max) * 100 : 0;
     progress.style.setProperty("--p", pct + "%");
-    progress.style.width = pct + "%";
 
     backToTop.classList.toggle("is-visible", y > 600);
   }
+  window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
   /* ---------- Mobile menu ---------- */
@@ -60,12 +60,15 @@
     mobileMenu.setAttribute("aria-hidden", "false");
     navToggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    var firstFocusable = mobileMenu.querySelector("a, button");
+    if (firstFocusable) firstFocusable.focus();
   }
   function closeMenu() {
     mobileMenu.classList.remove("is-open");
     mobileMenu.setAttribute("aria-hidden", "true");
     navToggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    navToggle.focus();
   }
 
   navToggle.addEventListener("click", openMenu);
@@ -256,12 +259,16 @@
   var resumeModal = document.getElementById("resumeModal");
   var resumeFrame = document.getElementById("resumeFrame");
   var resumeUrl = resumeFrame ? resumeFrame.getAttribute("src") : "";
+  var lastFocus = null;
 
   function openModal(modal) {
     if (!modal) return;
+    lastFocus = document.activeElement;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    var focusTarget = modal.querySelector("[data-modal-close], a, button");
+    if (focusTarget) focusTarget.focus();
   }
   function closeModal(modal) {
     if (!modal) return;
@@ -270,6 +277,7 @@
     if (modal === certModal && certModalImg) certModalImg.src = "";
     if (modal === resumeModal && resumeFrame) resumeFrame.src = "about:blank";
     document.body.style.overflow = "";
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
   }
 
   document.querySelectorAll("[data-modal-close]").forEach(function (el) {
