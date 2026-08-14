@@ -248,4 +248,79 @@
       history.replaceState(null, "", link.getAttribute("href"));
     });
   });
+
+  /* ---------- Modals (certificate lightbox + resume viewer) ---------- */
+  var certModal = document.getElementById("certModal");
+  var certModalImg = document.getElementById("certModalImg");
+  var certModalDownload = document.getElementById("certModalDownload");
+  var resumeModal = document.getElementById("resumeModal");
+  var resumeFrame = document.getElementById("resumeFrame");
+  var resumeUrl = resumeFrame ? resumeFrame.getAttribute("src") : "";
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    if (modal === certModal && certModalImg) certModalImg.src = "";
+    if (modal === resumeModal && resumeFrame) resumeFrame.src = "about:blank";
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-modal-close]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      closeModal(el.closest(".modal"));
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeModal(certModal);
+      closeModal(resumeModal);
+    }
+  });
+
+  certModal.addEventListener("click", function (e) {
+    if (e.target === certModal) closeModal(certModal);
+  });
+  resumeModal.addEventListener("click", function (e) {
+    if (e.target === resumeModal) closeModal(resumeModal);
+  });
+
+  document.querySelectorAll(".cert").forEach(function (card) {
+    var img = card.querySelector(".cert__img");
+    if (!img) return;
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "cert__view";
+    btn.setAttribute("aria-label", "View certificate");
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> View';
+    card.appendChild(btn);
+
+    function openCertLightbox() {
+      certModalImg.src = img.getAttribute("src");
+      certModalImg.alt = img.getAttribute("alt") || "Certificate";
+      certModalDownload.href = img.getAttribute("src");
+      certModalDownload.setAttribute("download", "");
+      openModal(certModal);
+    }
+
+    btn.addEventListener("click", openCertLightbox);
+    img.addEventListener("click", openCertLightbox);
+    img.style.cursor = "zoom-in";
+  });
+
+  document.querySelectorAll("[data-resume-view]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (resumeFrame) resumeFrame.src = resumeUrl;
+      openModal(resumeModal);
+    });
+  });
 })();

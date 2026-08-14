@@ -9,7 +9,7 @@
   <meta name="keywords" content="Armeen Ali, Armeen Ali Soomro, MUET, Mehran University, Computer Systems Engineering, Java Developer, Web Developer, Frontend Developer, CSE'29, Hyderabad, Pakistan, Generative AI, Prompt Engineering">
   <meta name="author" content="Armeen Ali Soomro">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0b0f17">
+  <meta name="theme-color" content="#04070f">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -152,6 +152,10 @@
 
           <div class="hero__cta reveal">
             <a href="#projects" class="btn btn--primary">View Projects</a>
+            <button type="button" class="btn btn--ghost" data-resume-view>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View Resume
+            </button>
             <a href="assets/resume/Armeen_Ali_Soomro_Resume.pdf" download class="btn btn--ghost">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
               Resume
@@ -855,7 +859,7 @@
           </article>
 
           <article class="cert reveal">
-            <img class="cert__img" src="assets/certificates/codealpha-offer.jpg" alt="CodeAlpha Java Programming Internship certificate" loading="lazy">
+            <img class="cert__img" src="assets/certificates/codealpha-completion.jpg" alt="CodeAlpha Java Programming Internship certificate of completion" loading="lazy">
             <div class="cert__head">
               <span class="cert__issuer">CodeAlpha</span>
               <span class="cert__year">2026</span>
@@ -865,7 +869,7 @@
           </article>
 
           <article class="cert reveal">
-            <img class="cert__img" src="assets/certificates/aic-acm.jpg" alt="AIC ACM Student Chapter volunteer certificate" loading="lazy">
+            <img class="cert__img" src="assets/certificates/aic-acm-volunteer.jpg" alt="AIC ACM Student Chapter volunteer appreciation certificate" loading="lazy">
             <div class="cert__head">
               <span class="cert__issuer">AIC ACM Student Chapter</span>
               <span class="cert__year">2026</span>
@@ -992,14 +996,17 @@
             <span class="contact__action">Browse repos ↗</span>
           </a>
 
-          <a class="contact__card" href="assets/resume/Armeen_Ali_Soomro_Resume.pdf" download>
+          <div class="contact__card contact__card--resume">
             <div class="contact__icon contact__icon--resume" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             </div>
             <h3 class="contact__title">Resume</h3>
             <p class="contact__value">Armeen_Ali_Soomro_Resume.pdf</p>
-            <span class="contact__action">Download PDF ↗</span>
-          </a>
+            <div class="contact__actions">
+              <button type="button" class="contact__btn" data-resume-view>View</button>
+              <a class="contact__btn" href="assets/resume/Armeen_Ali_Soomro_Resume.pdf" download>Download</a>
+            </div>
+          </div>
 
           <div class="contact__card contact__card--static">
             <div class="contact__icon contact__icon--loc" aria-hidden="true">
@@ -1032,6 +1039,35 @@
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
+
+  <!-- ======= Certificate lightbox ======= -->
+  <div class="modal" id="certModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__content modal__content--img">
+      <button class="modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <img id="certModalImg" src="" alt="">
+      <a id="certModalDownload" class="btn btn--primary" href="" download>Download Certificate</a>
+    </div>
+  </div>
+
+  <!-- ======= Resume viewer ======= -->
+  <div class="modal" id="resumeModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__content modal__content--pdf">
+      <button class="modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <iframe id="resumeFrame" src="assets/resume/Armeen_Ali_Soomro_Resume.pdf" title="Resume preview"></iframe>
+      <div class="modal__bar">
+        <a class="btn btn--primary" href="assets/resume/Armeen_Ali_Soomro_Resume.pdf" download>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
