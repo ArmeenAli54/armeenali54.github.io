@@ -455,16 +455,16 @@
           y: Math.random() * gH,
           r: Math.random() * 260 + 160,
           hue: n % 2 === 0 ? 271 : 187,
-          alpha: Math.random() * 0.05 + 0.04,
+          alpha: Math.random() * 0.035 + 0.02,
           dx: (Math.random() - 0.5) * 0.25,
           dy: (Math.random() - 0.5) * 0.18,
         });
       }
 
       gAuroras = [
-        { hue: 271, baseY: gH * 0.22, amp: 62, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.55 },
-        { hue: 187, baseY: gH * 0.4, amp: 50, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.5 },
-        { hue: 265, baseY: gH * 0.55, amp: 44, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.4 },
+        { hue: 271, baseY: gH * 0.22, amp: 62, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.38 },
+        { hue: 187, baseY: gH * 0.4, amp: 50, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.34 },
+        { hue: 265, baseY: gH * 0.55, amp: 44, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.26 },
       ];
     }
 

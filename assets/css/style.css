@@ -59,7 +59,20 @@ html[data-theme="light"] {
   z-index: 0;
   pointer-events: none;
 }
-html[data-theme="light"] #galaxy {
+.galaxy-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 85% at 50% 42%,
+    rgba(9, 9, 9, 0.72),
+    rgba(9, 9, 9, 0.5) 55%,
+    rgba(9, 9, 9, 0.62) 100%
+  );
+}
+html[data-theme="light"] #galaxy,
+html[data-theme="light"] .galaxy-overlay {
   display: none;
 }
 
@@ -497,7 +510,7 @@ html[data-theme="light"] .theme-toggle .icon--moon {
 }
 
 .section--alt {
-  background: rgba(13, 13, 13, 0.82);
+  background: rgba(9, 9, 9, 0.9);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -1599,7 +1612,7 @@ a.contact__card:hover,
   position: relative;
   z-index: 1;
   border-top: 1px solid var(--border);
-  background: rgba(13, 13, 13, 0.82);
+  background: rgba(9, 9, 9, 0.9);
   padding: 34px 0;
 }
 html[data-theme="light"] .footer {
