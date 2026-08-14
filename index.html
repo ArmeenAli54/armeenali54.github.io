@@ -9,7 +9,7 @@
   <meta name="keywords" content="Armeen Ali, Armeen Ali Soomro, MUET, Mehran University, Computer Systems Engineering, Java Developer, Web Developer, Frontend Developer, CSE'29, Hyderabad, Pakistan, Generative AI, Prompt Engineering">
   <meta name="author" content="Armeen Ali Soomro">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#04070f">
+  <meta name="theme-color" content="#090909">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -1024,6 +1024,46 @@
             <p class="contact__value">Hyderabad, Sindh, Pakistan</p>
             <span class="contact__action contact__action--muted">Open to remote</span>
           </div>
+        </div>
+
+        <div class="message reveal" id="message">
+          <div class="message__head">
+            <h3 class="message__title">Send me a message</h3>
+            <p class="message__sub">
+              Have an opportunity, question or just want to say hi? Drop a message — I'll get back to you.
+            </p>
+          </div>
+
+          <form class="message__form" id="contactForm" action="https://formsubmit.co/armeenali555@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New message from Armeen's portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://armeenali54.github.io/">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="message__row">
+              <div class="message__field">
+                <label class="message__label" for="msgName">Name</label>
+                <input class="message__input" type="text" id="msgName" name="name" placeholder="Your name" required>
+              </div>
+              <div class="message__field">
+                <label class="message__label" for="msgEmail">Email</label>
+                <input class="message__input" type="email" id="msgEmail" name="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="message__field">
+              <label class="message__label" for="msgSubject">Subject</label>
+              <input class="message__input" type="text" id="msgSubject" name="subject" placeholder="What is this about?">
+            </div>
+            <div class="message__field">
+              <label class="message__label" for="msgText">Message</label>
+              <textarea class="message__input message__input--area" id="msgText" name="message" rows="5" placeholder="Write your message..." required></textarea>
+            </div>
+            <button class="btn btn--primary message__submit" type="submit">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+              Send Message
+            </button>
+            <p class="message__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>

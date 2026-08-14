@@ -323,4 +323,49 @@
       openModal(resumeModal);
     });
   });
+
+  /* ---------- Contact form (AJAX via FormSubmit) ---------- */
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var status = document.getElementById("formStatus");
+      var submitBtn = contactForm.querySelector(".message__submit");
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      status.textContent = "Sending...";
+      status.className = "message__status";
+
+      var formData = new FormData(contactForm);
+      formData.append("_ajax", "true");
+
+      fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) {
+          if (res.ok) {
+            status.textContent = "Message sent! Thanks for reaching out — I'll get back to you soon.";
+            status.classList.add("is-success");
+            contactForm.reset();
+          } else {
+            status.textContent = "Something went wrong. Please try again or email me directly.";
+            status.classList.add("is-error");
+          }
+        })
+        .catch(function () {
+          status.textContent = "Something went wrong. Please try again or email me directly.";
+          status.classList.add("is-error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
+    });
+  }
 })();
