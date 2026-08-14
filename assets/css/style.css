@@ -459,10 +459,53 @@ html[data-theme="light"] .theme-toggle .icon--moon {
 .hero__inner {
   position: relative;
   z-index: 2;
+  width: 100%;
+}
+
+.hero__grid-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 380px);
+  align-items: center;
+  gap: 56px;
 }
 
 .hero__content {
   max-width: 860px;
+}
+
+.hero__portrait {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 26px;
+  padding: 10px;
+  background: linear-gradient(150deg, rgba(56, 240, 184, 0.55), rgba(167, 139, 250, 0.5) 50%, rgba(47, 212, 238, 0.45));
+  box-shadow: 0 30px 70px -24px rgba(56, 240, 184, 0.35);
+}
+.hero__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  padding: 10px;
+  background: linear-gradient(150deg, rgba(56, 240, 184, 0.35), transparent 45%, rgba(167, 139, 250, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.hero__portrait-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+  object-fit: cover;
+  background: var(--bg-soft);
 }
 
 .hero__eyebrow {
@@ -1526,6 +1569,16 @@ a.contact__card:hover,
 @media (max-width: 1024px) {
   .about {
     grid-template-columns: 1fr;
+  }
+  .hero__grid-layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .hero__portrait {
+    order: -1;
+  }
+  .hero__portrait-frame {
+    max-width: 300px;
   }
 }
 
