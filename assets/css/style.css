@@ -9,8 +9,8 @@
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --bg: #0a0a0c;
-  --bg-soft: #101013;
+  --bg: #161031;
+  --bg-soft: #201848;
   --surface: rgba(255, 255, 255, 0.045);
   --surface-hover: rgba(255, 255, 255, 0.075);
   --surface-solid: rgba(255, 255, 255, 0.05);
@@ -74,9 +74,9 @@ html[data-theme="light"] {
   pointer-events: none;
   background: radial-gradient(
     ellipse 120% 100% at 50% 40%,
-    rgba(10, 10, 12, 0.26),
-    rgba(10, 10, 12, 0.42) 60%,
-    rgba(10, 10, 12, 0.54) 100%
+    rgba(22, 16, 49, 0.1),
+    rgba(22, 16, 49, 0.26) 60%,
+    rgba(22, 16, 49, 0.4) 100%
   );
 }
 html[data-theme="light"] #galaxy,
@@ -92,7 +92,7 @@ html[data-theme="light"] .galaxy-overlay {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0c;
+  background: var(--bg);
   overflow: hidden;
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
@@ -305,7 +305,7 @@ ul {
   right: 0;
   z-index: 90;
   height: var(--nav-h);
-  background: rgba(10, 10, 12, 0.6);
+  background: rgba(22, 16, 49, 0.55);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid transparent;

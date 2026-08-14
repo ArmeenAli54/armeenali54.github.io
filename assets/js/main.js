@@ -453,10 +453,10 @@
       var ca2 = Math.cos(tilt2);
       var sa2 = Math.sin(tilt2);
 
-      gCore = { x: cx, y: cy, r: gH * 0.5, hue: 274, alpha: 0.07 };
-      gCore2 = { x: cx2, y: cy2, r: gH * 0.32, hue: 284, alpha: 0.05 };
+      gCore = { x: cx, y: cy, r: gH * 0.55, hue: 274, alpha: 0.13 };
+      gCore2 = { x: cx2, y: cy2, r: gH * 0.34, hue: 284, alpha: 0.1 };
 
-      var count = Math.min(Math.floor((gW * gH) / 4200), 380);
+      var count = Math.min(Math.floor((gW * gH) / 2600), 700);
       gStars = [];
       for (var i = 0; i < count; i++) {
         var x, y;
@@ -478,10 +478,10 @@
         gStars.push({
           x: x,
           y: y,
-          r: Math.random() * 1.0 + 0.25,
+          r: Math.random() * 1.3 + 0.4,
           base: Math.random() * Math.PI * 2,
           speed: Math.random() * 0.5 + 0.15,
-          alpha: Math.random() * 0.22 + 0.08,
+          alpha: Math.random() * 0.35 + 0.2,
         });
       }
 
@@ -492,7 +492,7 @@
           y: Math.random() * gH,
           r: Math.random() * 280 + 200,
           hue: 264 + Math.random() * 24,
-          alpha: Math.random() * 0.025 + 0.02,
+          alpha: Math.random() * 0.05 + 0.035,
           dx: (Math.random() - 0.5) * 0.12,
           dy: (Math.random() - 0.5) * 0.1,
         });
@@ -505,15 +505,15 @@
 
       var core = gCore;
       var cg = ctx.createRadialGradient(core.x, core.y, 0, core.x, core.y, core.r);
-      cg.addColorStop(0, "hsla(" + core.hue + ", 52%, 42%, " + core.alpha + ")");
-      cg.addColorStop(1, "hsla(" + core.hue + ", 52%, 42%, 0)");
+      cg.addColorStop(0, "hsla(" + core.hue + ", 56%, 48%, " + core.alpha + ")");
+      cg.addColorStop(1, "hsla(" + core.hue + ", 56%, 48%, 0)");
       ctx.fillStyle = cg;
       ctx.fillRect(core.x - core.r, core.y - core.r, core.r * 2, core.r * 2);
 
       var core2 = gCore2;
       var cg2 = ctx.createRadialGradient(core2.x, core2.y, 0, core2.x, core2.y, core2.r);
-      cg2.addColorStop(0, "hsla(" + core2.hue + ", 52%, 42%, " + core2.alpha + ")");
-      cg2.addColorStop(1, "hsla(" + core2.hue + ", 52%, 42%, 0)");
+      cg2.addColorStop(0, "hsla(" + core2.hue + ", 56%, 48%, " + core2.alpha + ")");
+      cg2.addColorStop(1, "hsla(" + core2.hue + ", 56%, 48%, 0)");
       ctx.fillStyle = cg2;
       ctx.fillRect(core2.x - core2.r, core2.y - core2.r, core2.r * 2, core2.r * 2);
 
@@ -522,8 +522,8 @@
         var nx = nb.x + Math.sin(sec * nb.dx * 2) * 20;
         var ny = nb.y + Math.cos(sec * nb.dy * 2) * 16;
         var ng = ctx.createRadialGradient(nx, ny, 0, nx, ny, nb.r);
-        ng.addColorStop(0, "hsla(" + nb.hue + ", 52%, 44%, " + nb.alpha + ")");
-        ng.addColorStop(1, "hsla(" + nb.hue + ", 52%, 44%, 0)");
+        ng.addColorStop(0, "hsla(" + nb.hue + ", 56%, 48%, " + nb.alpha + ")");
+        ng.addColorStop(1, "hsla(" + nb.hue + ", 56%, 48%, 0)");
         ctx.fillStyle = ng;
         ctx.fillRect(nx - nb.r, ny - nb.r, nb.r * 2, nb.r * 2);
       }
@@ -534,7 +534,7 @@
         ctx.globalAlpha = st.alpha * tw;
         ctx.beginPath();
         ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
-        ctx.fillStyle = st.r > 0.9 ? "#a78bfa" : "#e6e9f0";
+        ctx.fillStyle = st.r > 1.0 ? "#c4b5fd" : "#eef1f8";
         ctx.fill();
       }
       ctx.globalAlpha = 1;
