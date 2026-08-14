@@ -50,10 +50,10 @@ html[data-theme="light"] {
   --text-soft: #4b5568;
   --text-faint: #8b93a5;
 
-  --accent: #5b21b6;
-  --accent-2: #5b21b6;
-  --accent-soft: rgba(91, 33, 182, 0.16);
-  --gradient: #5b21b6;
+  --accent: #7c3aed;
+  --accent-2: #7c3aed;
+  --accent-soft: rgba(124, 58, 237, 0.14);
+  --gradient: #7c3aed;
 
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   --shadow: 0 24px 60px -28px rgba(30, 40, 80, 0.35);
