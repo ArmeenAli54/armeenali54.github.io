@@ -1,5 +1,5 @@
 /* ============================================================
-   Armeen Ali Soomro â€” Portfolio
+   Armeen Ali Soomro — Portfolio
    Dark-first, premium, responsive. Light theme via data-theme.
    ============================================================ */
 
@@ -1059,7 +1059,7 @@ html[data-theme="light"] .about__fact {
   font-size: 0.88rem;
 }
 .project__features li::before {
-  content: "â–¹";
+  content: "▹";
   position: absolute;
   left: 0;
   color: var(--accent);
