@@ -373,7 +373,7 @@
   var intro = document.getElementById("intro");
   if (intro) {
     var introName = document.getElementById("introName");
-    var introStr = (introName && introName.getAttribute("data-name")) || "Armeen Ali Soomro";
+    var introStr = (introName && introName.getAttribute("data-name")) || "Armeen Ali";
     var letterCount = 0;
     introStr.split("").forEach(function (ch) {
       var span = document.createElement("span");
@@ -417,6 +417,7 @@
     var gRaf = null;
     var gStars = [];
     var gNebulas = [];
+    var gAuroras = [];
     var gShooting = [];
     var gTime = 0;
     var gW = 0;
@@ -459,11 +460,54 @@
           dy: (Math.random() - 0.5) * 0.18,
         });
       }
+
+      gAuroras = [
+        { hue: 271, baseY: gH * 0.22, amp: 56, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.34 },
+        { hue: 187, baseY: gH * 0.4, amp: 46, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.3 },
+        { hue: 265, baseY: gH * 0.55, amp: 40, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.22 },
+      ];
+    }
+
+    function drawAuroras(sec) {
+      ctx.save();
+      ctx.globalCompositeOperation = "screen";
+      for (var i = 0; i < gAuroras.length; i++) {
+        var au = gAuroras[i];
+        ctx.beginPath();
+        var first = true;
+        for (var x = -60; x <= gW + 60; x += 24) {
+          var env = 1 - Math.abs(x / gW - 0.5) * 2;
+          var y =
+            au.baseY +
+            Math.sin(x * au.freq + sec * au.speed + au.phase) * au.amp * (0.35 + 0.65 * env) +
+            Math.sin(x * au.freq * 0.5 + sec * au.speed * 0.6 + au.phase * 1.7) *
+              au.amp *
+              0.35 *
+              env;
+          if (first) {
+            ctx.moveTo(x, y);
+            first = false;
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.lineTo(gW + 60, gH);
+        ctx.lineTo(-60, gH);
+        ctx.closePath();
+        var grad = ctx.createLinearGradient(0, au.baseY - au.amp, 0, gH);
+        grad.addColorStop(0, "hsla(" + au.hue + ", 90%, 62%, " + au.alpha + ")");
+        grad.addColorStop(1, "hsla(" + au.hue + ", 90%, 62%, 0)");
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+      ctx.restore();
     }
 
     function drawGalaxy(now) {
       ctx.clearRect(0, 0, gW, gH);
       var sec = now / 1000;
+
+      drawAuroras(sec);
 
       for (var i = 0; i < gNebulas.length; i++) {
         var nb = gNebulas[i];
