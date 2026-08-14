@@ -1037,6 +1037,20 @@ html[data-theme="light"] .project__foot {
   margin-bottom: 18px;
 }
 
+.cert__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+  background: var(--accent-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.cert:hover .cert__img {
+  border-color: var(--accent);
+}
+
 .cert__issuer {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1238,6 +1252,9 @@ a.contact__card:hover {
 }
 .contact__icon--loc {
   background: var(--gradient);
+}
+.contact__icon--resume {
+  background: #16a34a;
 }
 
 .contact__title {
