@@ -409,16 +409,13 @@
     }
   }
 
-  /* ---------- Galaxy background (canvas) ---------- */
+  /* ---------- Subtle starfield background (canvas) ---------- */
   var galaxy = document.getElementById("galaxy");
   if (galaxy && galaxy.getContext) {
     var ctx = galaxy.getContext("2d");
     var gRunning = false;
     var gRaf = null;
     var gStars = [];
-    var gNebulas = [];
-    var gAuroras = [];
-    var gShooting = [];
     var gTime = 0;
     var gW = 0;
     var gH = 0;
@@ -433,145 +430,33 @@
       galaxy.style.height = gH + "px";
       ctx.setTransform(gDpr, 0, 0, gDpr, 0, 0);
 
-      var count = Math.min(Math.floor((gW * gH) / 4200), 260);
+      var count = Math.min(Math.floor((gW * gH) / 6000), 220);
       gStars = [];
       for (var i = 0; i < count; i++) {
-        var rnd = Math.random();
         gStars.push({
           x: Math.random() * gW,
           y: Math.random() * gH,
-          r: Math.random() * 1.4 + 0.3,
+          r: Math.random() * 1.1 + 0.3,
           base: Math.random() * Math.PI * 2,
-          speed: Math.random() * 0.9 + 0.3,
-          twinkle: Math.random() * 0.7 + 0.3,
-          hue: rnd > 0.78 ? (rnd > 0.89 ? 187 : 271) : null,
+          speed: Math.random() * 0.5 + 0.15,
+          alpha: Math.random() * 0.3 + 0.18,
         });
       }
-
-      gNebulas = [];
-      for (var n = 0; n < 5; n++) {
-        gNebulas.push({
-          x: Math.random() * gW,
-          y: Math.random() * gH,
-          r: Math.random() * 260 + 160,
-          hue: n % 2 === 0 ? 271 : 187,
-          alpha: Math.random() * 0.045 + 0.035,
-          dx: (Math.random() - 0.5) * 0.25,
-          dy: (Math.random() - 0.5) * 0.18,
-        });
-      }
-
-      gAuroras = [
-        { hue: 271, baseY: gH * 0.22, amp: 62, freq: 0.0042, speed: 0.22, phase: 0.0, alpha: 0.55 },
-        { hue: 187, baseY: gH * 0.4, amp: 50, freq: 0.0032, speed: -0.18, phase: 2.1, alpha: 0.48 },
-        { hue: 265, baseY: gH * 0.55, amp: 44, freq: 0.0038, speed: 0.16, phase: 4.2, alpha: 0.38 },
-      ];
-    }
-
-    function drawAuroras(sec) {
-      ctx.save();
-      ctx.globalCompositeOperation = "screen";
-      for (var i = 0; i < gAuroras.length; i++) {
-        var au = gAuroras[i];
-        ctx.beginPath();
-        var first = true;
-        for (var x = -60; x <= gW + 60; x += 24) {
-          var env = 1 - Math.abs(x / gW - 0.5) * 2;
-          var y =
-            au.baseY +
-            Math.sin(x * au.freq + sec * au.speed + au.phase) * au.amp * (0.35 + 0.65 * env) +
-            Math.sin(x * au.freq * 0.5 + sec * au.speed * 0.6 + au.phase * 1.7) *
-              au.amp *
-              0.35 *
-              env;
-          if (first) {
-            ctx.moveTo(x, y);
-            first = false;
-          } else {
-            ctx.lineTo(x, y);
-          }
-        }
-        ctx.lineTo(gW + 60, gH);
-        ctx.lineTo(-60, gH);
-        ctx.closePath();
-        var grad = ctx.createLinearGradient(0, au.baseY - au.amp, 0, gH);
-        grad.addColorStop(0, "hsla(" + au.hue + ", 90%, 62%, " + au.alpha + ")");
-        grad.addColorStop(1, "hsla(" + au.hue + ", 90%, 62%, 0)");
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
-      ctx.restore();
     }
 
     function drawGalaxy(now) {
       ctx.clearRect(0, 0, gW, gH);
       var sec = now / 1000;
-
-      drawAuroras(sec);
-
-      for (var i = 0; i < gNebulas.length; i++) {
-        var nb = gNebulas[i];
-        var x = nb.x + Math.sin(sec * nb.dx * 4) * 30;
-        var y = nb.y + Math.cos(sec * nb.dy * 4) * 24;
-        var g = ctx.createRadialGradient(x, y, 0, x, y, nb.r);
-        g.addColorStop(0, "hsla(" + nb.hue + ", 80%, 60%, " + nb.alpha + ")");
-        g.addColorStop(1, "hsla(" + nb.hue + ", 80%, 60%, 0)");
-        ctx.fillStyle = g;
-        ctx.fillRect(x - nb.r, y - nb.r, nb.r * 2, nb.r * 2);
-      }
-
-      for (var s = 0; s < gStars.length; s++) {
-        var st = gStars[s];
-        var tw = 0.5 + 0.5 * Math.sin(sec * st.speed + st.base);
-        var a = st.twinkle * (0.55 + 0.45 * tw);
+      for (var i = 0; i < gStars.length; i++) {
+        var st = gStars[i];
+        var tw = 0.6 + 0.4 * Math.sin(sec * st.speed + st.base);
+        ctx.globalAlpha = st.alpha * tw;
         ctx.beginPath();
         ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
-        ctx.fillStyle = st.hue
-          ? "hsla(" + st.hue + ", 70%, 78%, " + a + ")"
-          : "rgba(238, 241, 246, " + a + ")";
+        ctx.fillStyle = "#eef1f6";
         ctx.fill();
-        if (st.r > 1.1) {
-          var glow = ctx.createRadialGradient(st.x, st.y, 0, st.x, st.y, st.r * 5);
-          glow.addColorStop(0, "rgba(255, 255, 255, " + a * 0.16 + ")");
-          glow.addColorStop(1, "rgba(255, 255, 255, 0)");
-          ctx.fillStyle = glow;
-          ctx.fillRect(st.x - st.r * 5, st.y - st.r * 5, st.r * 10, st.r * 10);
-        }
       }
-
-      if (!gShooting.length && Math.random() < 0.008) {
-        gShooting.push({
-          x: Math.random() * gW * 0.7 + gW * 0.3,
-          y: Math.random() * gH * 0.4,
-          vx: (Math.random() * 2 + 3) * 0.9,
-          vy: (Math.random() * 2 + 3) * 0.6,
-          life: 1,
-        });
-      }
-      for (var m = gShooting.length - 1; m >= 0; m--) {
-        var ms = gShooting[m];
-        ms.x += ms.vx;
-        ms.y += ms.vy;
-        ms.life -= 0.012;
-        if (ms.life <= 0) {
-          gShooting.splice(m, 1);
-          continue;
-        }
-        var tail = ctx.createLinearGradient(
-          ms.x,
-          ms.y,
-          ms.x - ms.vx * 14,
-          ms.y - ms.vy * 14
-        );
-        tail.addColorStop(0, "rgba(255, 255, 255, " + ms.life * 0.8 + ")");
-        tail.addColorStop(1, "rgba(255, 255, 255, 0)");
-        ctx.strokeStyle = tail;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(ms.x, ms.y);
-        ctx.lineTo(ms.x - ms.vx * 14, ms.y - ms.vy * 14);
-        ctx.stroke();
-      }
+      ctx.globalAlpha = 1;
     }
 
     function galaxyTick(now) {
