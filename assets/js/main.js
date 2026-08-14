@@ -368,4 +368,220 @@
         });
     });
   }
+
+  /* ---------- Intro splash: animated name ---------- */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    var introName = document.getElementById("introName");
+    var introStr = (introName && introName.getAttribute("data-name")) || "Armeen Ali Soomro";
+    var letterCount = 0;
+    introStr.split("").forEach(function (ch) {
+      var span = document.createElement("span");
+      span.className = "intro__letter" + (ch === " " ? " intro__space" : "");
+      span.textContent = ch === " " ? "\u00A0" : ch;
+      span.style.animationDelay = (0.15 + letterCount * 0.055).toFixed(3) + "s";
+      letterCount++;
+      if (introName) introName.appendChild(span);
+    });
+
+    function dismissIntro() {
+      if (intro.classList.contains("is-done")) return;
+      intro.classList.add("is-done");
+      intro.setAttribute("aria-hidden", "true");
+      setTimeout(function () {
+        if (intro.parentNode) intro.parentNode.removeChild(intro);
+      }, 700);
+    }
+
+    var introEnter = document.getElementById("introEnter");
+    if (introEnter) introEnter.addEventListener("click", dismissIntro);
+    intro.addEventListener("click", function (e) {
+      if (e.target === intro) dismissIntro();
+    });
+    intro.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") dismissIntro();
+    });
+
+    if (prefersReduced) {
+      dismissIntro();
+    } else {
+      setTimeout(dismissIntro, 2350 + letterCount * 30);
+    }
+  }
+
+  /* ---------- Galaxy background (canvas) ---------- */
+  var galaxy = document.getElementById("galaxy");
+  if (galaxy && galaxy.getContext) {
+    var ctx = galaxy.getContext("2d");
+    var gRunning = false;
+    var gRaf = null;
+    var gStars = [];
+    var gNebulas = [];
+    var gShooting = [];
+    var gTime = 0;
+    var gW = 0;
+    var gH = 0;
+    var gDpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+    function buildGalaxy() {
+      gW = window.innerWidth;
+      gH = window.innerHeight;
+      galaxy.width = Math.floor(gW * gDpr);
+      galaxy.height = Math.floor(gH * gDpr);
+      galaxy.style.width = gW + "px";
+      galaxy.style.height = gH + "px";
+      ctx.setTransform(gDpr, 0, 0, gDpr, 0, 0);
+
+      var count = Math.min(Math.floor((gW * gH) / 5200), 220);
+      gStars = [];
+      for (var i = 0; i < count; i++) {
+        var rnd = Math.random();
+        gStars.push({
+          x: Math.random() * gW,
+          y: Math.random() * gH,
+          r: Math.random() * 1.4 + 0.3,
+          base: Math.random() * Math.PI * 2,
+          speed: Math.random() * 0.9 + 0.3,
+          twinkle: Math.random() * 0.7 + 0.3,
+          hue: rnd > 0.78 ? (rnd > 0.89 ? 187 : 271) : null,
+        });
+      }
+
+      gNebulas = [];
+      for (var n = 0; n < 5; n++) {
+        gNebulas.push({
+          x: Math.random() * gW,
+          y: Math.random() * gH,
+          r: Math.random() * 260 + 160,
+          hue: n % 2 === 0 ? 271 : 187,
+          alpha: Math.random() * 0.05 + 0.025,
+          dx: (Math.random() - 0.5) * 0.25,
+          dy: (Math.random() - 0.5) * 0.18,
+        });
+      }
+    }
+
+    function drawGalaxy(now) {
+      ctx.clearRect(0, 0, gW, gH);
+      var sec = now / 1000;
+
+      for (var i = 0; i < gNebulas.length; i++) {
+        var nb = gNebulas[i];
+        var x = nb.x + Math.sin(sec * nb.dx * 4) * 30;
+        var y = nb.y + Math.cos(sec * nb.dy * 4) * 24;
+        var g = ctx.createRadialGradient(x, y, 0, x, y, nb.r);
+        g.addColorStop(0, "hsla(" + nb.hue + ", 80%, 60%, " + nb.alpha + ")");
+        g.addColorStop(1, "hsla(" + nb.hue + ", 80%, 60%, 0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(x - nb.r, y - nb.r, nb.r * 2, nb.r * 2);
+      }
+
+      for (var s = 0; s < gStars.length; s++) {
+        var st = gStars[s];
+        var tw = 0.5 + 0.5 * Math.sin(sec * st.speed + st.base);
+        var a = st.twinkle * (0.45 + 0.55 * tw);
+        ctx.beginPath();
+        ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+        ctx.fillStyle = st.hue
+          ? "hsla(" + st.hue + ", 70%, 78%, " + a + ")"
+          : "rgba(238, 241, 246, " + a + ")";
+        ctx.fill();
+        if (st.r > 1.1) {
+          var glow = ctx.createRadialGradient(st.x, st.y, 0, st.x, st.y, st.r * 5);
+          glow.addColorStop(0, "rgba(255, 255, 255, " + a * 0.16 + ")");
+          glow.addColorStop(1, "rgba(255, 255, 255, 0)");
+          ctx.fillStyle = glow;
+          ctx.fillRect(st.x - st.r * 5, st.y - st.r * 5, st.r * 10, st.r * 10);
+        }
+      }
+
+      if (!gShooting.length && Math.random() < 0.008) {
+        gShooting.push({
+          x: Math.random() * gW * 0.7 + gW * 0.3,
+          y: Math.random() * gH * 0.4,
+          vx: (Math.random() * 2 + 3) * 0.9,
+          vy: (Math.random() * 2 + 3) * 0.6,
+          life: 1,
+        });
+      }
+      for (var m = gShooting.length - 1; m >= 0; m--) {
+        var ms = gShooting[m];
+        ms.x += ms.vx;
+        ms.y += ms.vy;
+        ms.life -= 0.012;
+        if (ms.life <= 0) {
+          gShooting.splice(m, 1);
+          continue;
+        }
+        var tail = ctx.createLinearGradient(
+          ms.x,
+          ms.y,
+          ms.x - ms.vx * 14,
+          ms.y - ms.vy * 14
+        );
+        tail.addColorStop(0, "rgba(255, 255, 255, " + ms.life * 0.8 + ")");
+        tail.addColorStop(1, "rgba(255, 255, 255, 0)");
+        ctx.strokeStyle = tail;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(ms.x, ms.y);
+        ctx.lineTo(ms.x - ms.vx * 14, ms.y - ms.vy * 14);
+        ctx.stroke();
+      }
+    }
+
+    function galaxyTick(now) {
+      if (!gRunning) return;
+      gTime = now;
+      drawGalaxy(now);
+      gRaf = requestAnimationFrame(galaxyTick);
+    }
+
+    function startGalaxy() {
+      if (gRunning) return;
+      gRunning = true;
+      gRaf = requestAnimationFrame(galaxyTick);
+    }
+    function stopGalaxy() {
+      gRunning = false;
+      if (gRaf) cancelAnimationFrame(gRaf);
+      gRaf = null;
+    }
+
+    buildGalaxy();
+
+    if (prefersReduced) {
+      drawGalaxy(0);
+    } else {
+      startGalaxy();
+    }
+
+    var galaxyResizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (galaxyResizeTimer) clearTimeout(galaxyResizeTimer);
+      galaxyResizeTimer = setTimeout(function () {
+        buildGalaxy();
+        if (prefersReduced) drawGalaxy(0);
+      }, 200);
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopGalaxy();
+      } else if (!prefersReduced) {
+        startGalaxy();
+      }
+    });
+
+    var galaxyThemeWatch = new MutationObserver(function () {
+      if (document.hidden || prefersReduced) return;
+      var visible = window.getComputedStyle(galaxy).display !== "none";
+      if (visible && !gRunning) startGalaxy();
+      if (!visible && gRunning) stopGalaxy();
+    });
+    galaxyThemeWatch.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }
 })();
