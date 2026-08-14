@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Armeen Ali Soomro — Computer Systems Engineering Student &amp; Developer</title>
+  <meta name="description" content="Armeen Ali Soomro is a Computer Systems Engineering student at MUET (CSE '29) and aspiring software developer. Explore his Java, web development and AI projects, internships, certifications and more.">
+  <meta name="keywords" content="Armeen Ali, Armeen Ali Soomro, MUET, Mehran University, Computer Systems Engineering, Java Developer, Web Developer, Frontend Developer, CSE'29, Hyderabad, Pakistan, Generative AI, Prompt Engineering">
+  <meta name="author" content="Armeen Ali Soomro">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0f17">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Armeen Ali Soomro — Computer Systems Engineering Student &amp; Developer">
+  <meta property="og:description" content="Computer Systems Engineering student at MUET | Java · Web Development · AI. Building projects, earning certifications, and growing as a developer.">
+  <meta property="og:site_name" content="Armeen Ali Soomro">
+  <meta property="og:url" content="https://armeenali54.github.io/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Armeen Ali Soomro — Computer Systems Engineering Student &amp; Developer">
+  <meta name="twitter:description" content="Computer Systems Engineering student at MUET | Java · Web Development · AI.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Armeen Ali Soomro",
+    "jobTitle": "Computer Systems Engineering Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Mehran University of Engineering and Technology (MUET)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Sindh",
+      "addressCountry": "Pakistan"
+    },
+    "alumniOf": "Mehran University of Engineering and Technology",
+    "knowsAbout": ["Java", "Web Development", "Generative AI", "Prompt Engineering", "Frontend Development"],
+    "sameAs": [
+      "https://www.linkedin.com/in/armeen-ali-37886239a",
+      "https://github.com/ArmeenAli54"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- ======= Progress bar ======= -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ======= Header / Nav ======= -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#home" class="nav__brand" aria-label="Armeen Ali Soomro — home">
+        <span class="nav__logo" aria-hidden="true">AA</span>
+        <span class="nav__name">Armeen<span class="nav__dot">.</span>Ali</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home" class="nav__link is-active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#certifications" class="nav__link">Certifications</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#community" class="nav__link">Community</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light / dark theme" aria-pressed="false">
+          <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="https://www.linkedin.com/in/armeen-ali-37886239a" target="_blank" rel="noopener" class="btn btn--primary btn--sm nav__cta">Let's Connect</a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu__head">
+        <span class="nav__logo" aria-hidden="true">AA</span>
+        <button class="mobile-menu__close" id="mobileClose" type="button" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-menu__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://www.linkedin.com/in/armeen-ali-37886239a" target="_blank" rel="noopener" class="btn btn--primary mobile-menu__cta">Let's Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======= Hero ======= -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--a"></div>
+        <div class="hero__glow hero__glow--b"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow reveal">Hi, my name is</p>
+          <h1 class="hero__title reveal">
+            <span class="text-gradient">Armeen Ali Soomro</span>
+          </h1>
+          <p class="hero__role reveal">
+            <span class="hero__role-label">I build</span>
+            <span class="hero__typed" id="typedText" aria-live="polite">software, one line at a time.</span>
+            <span class="hero__caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero__desc reveal">
+            Computer Systems Engineering student at <strong>MUET</strong> (CSE '29) and aspiring
+            software developer from Hyderabad, Pakistan — passionate about Java, modern web
+            development and Generative AI.
+          </p>
+
+          <div class="hero__stats reveal" aria-label="Quick facts">
+            <div class="stat">
+              <span class="stat__value"><span class="count" data-target="4">0</span>+</span>
+              <span class="stat__label">Experiences</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value"><span class="count" data-target="12">0</span>+</span>
+              <span class="stat__label">Certifications</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value"><span class="count" data-target="8">0</span>+</span>
+              <span class="stat__label">Projects</span>
+            </div>
+          </div>
+
+          <div class="hero__cta reveal">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="https://www.linkedin.com/in/armeen-ali-37886239a" target="_blank" rel="noopener" class="btn btn--ghost">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/ArmeenAli54" target="_blank" rel="noopener" class="btn btn--ghost">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll reveal" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">scroll</span>
+      </div>
+    </section>
+
+    <!-- ======= About ======= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">About Me</p>
+          <h2 class="section__title">Turning curiosity into code</h2>
+        </div>
+
+        <div class="about">
+          <div class="about__card reveal">
+            <p>
+              I'm <strong>Armeen Ali Soomro</strong>, a first-year Computer Systems Engineering
+              student at <strong>Mehran University of Engineering &amp; Technology</strong> (MUET),
+              Jamshoro — batch of 2029. I'm based in Hyderabad, Sindh, Pakistan, and I'm on a mission
+              to build meaningful software that solves real problems.
+            </p>
+            <p>
+              My journey into development started with a love for understanding how systems work.
+              Today I split my time between strengthening my <strong>Java</strong> fundamentals,
+              crafting modern <strong>front-end experiences</strong>, and exploring the world of
+              <strong>Generative AI</strong> and prompt engineering.
+            </p>
+            <p>
+              I've already completed two virtual <strong>Java internships</strong>, been selected for a
+              remote <strong>front-end internship</strong>, and earned certifications from IBM, Microsoft,
+              AWS and more — all while building projects I'm genuinely proud of, like a 3D, interactive
+              history-of-my-lifetime web app and a Java Swing banking system.
+            </p>
+          </div>
+
+          <div class="about__aside reveal">
+            <div class="about__fact">
+              <span class="about__fact-label">Currently</span>
+              <span class="about__fact-value">B.E. Computer Systems Engineering, MUET</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-label">Based in</span>
+              <span class="about__fact-value">Hyderabad, Sindh, Pakistan</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-label">Focusing on</span>
+              <span class="about__fact-value">Java · Web Development · Generative AI</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-label">Open to</span>
+              <span class="about__fact-value">Internships &amp; collaboration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Experience ======= -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Experience</p>
+          <h2 class="section__title">Internships &amp; roles</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <div>
+                  <h3 class="timeline__role">Frontend Development Intern</h3>
+                  <p class="timeline__org">Progree · Remote</p>
+                </div>
+                <span class="timeline__badge">Current</span>
+              </div>
+              <p class="timeline__period">July 2026 — Present</p>
+              <p class="timeline__desc">
+                Selected for a remote front-end development internship at Progree. Built a
+                <strong>Bulk Order Pricing Calculator</strong> with live receipt, volume discount
+                tiers, regional sales tax and promo codes — published as a GitHub Pages demo.
+              </p>
+              <div class="timeline__tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <div>
+                  <h3 class="timeline__role">Java Programming Intern</h3>
+                  <p class="timeline__org">DecodeLabs · Virtual</p>
+                </div>
+                <span class="timeline__badge timeline__badge--done">Completed</span>
+              </div>
+              <p class="timeline__period">June — July 2026</p>
+              <p class="timeline__desc">
+                Completed a Java programming virtual internship. Developed
+                <strong>DecodeBank Pakistan</strong>, a GUI-based banking management system in Java
+                Swing, along with a number-guessing game and a student grade calculator. Awarded a
+                Certificate of Completion and a Letter of Recommendation.
+              </p>
+              <div class="timeline__tech">
+                <span>Java</span><span>Java Swing</span><span>OOP</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <div>
+                  <h3 class="timeline__role">Content Writer</h3>
+                  <p class="timeline__org">She's Beyond · Remote</p>
+                </div>
+                <span class="timeline__badge timeline__badge--done">Jul — Sep 2026</span>
+              </div>
+              <p class="timeline__period">July 2026 — September 2026</p>
+              <p class="timeline__desc">
+                Selected as a Content Writer at She's Beyond for the July–September 2026 term,
+                creating content that connects, inspires and creates a positive impact.
+              </p>
+              <div class="timeline__tech">
+                <span>Content Writing</span><span>Creative Writing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <div>
+                  <h3 class="timeline__role">Java Programming Intern</h3>
+                  <p class="timeline__org">CodeAlpha · Virtual</p>
+                </div>
+                <span class="timeline__badge timeline__badge--done">Completed</span>
+              </div>
+              <p class="timeline__period">May — June 2026</p>
+              <p class="timeline__desc">
+                Hands-on Java programming internship where I built a
+                <strong>Hotel Reservation Management System</strong> and a number-guessing game,
+                strengthening my OOP understanding and problem-solving skills.
+              </p>
+              <div class="timeline__tech">
+                <span>Java</span><span>OOP</span><span>Problem Solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Projects ======= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Projects</p>
+          <h2 class="section__title">Things I've built</h2>
+          <p class="section__sub">
+            A selection of my work — from a 3D interactive web experience to Java desktop applications.
+          </p>
+        </div>
+
+        <div class="projects" id="projectsGrid">
+          <!-- Project: Earth in Your Lifetime -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🌍</div>
+              <div class="project__labels">
+                <span class="project__label">Featured</span>
+                <span class="project__label project__label--alt">Web App</span>
+              </div>
+              <h3 class="project__title">Earth in Your Lifetime</h3>
+              <p class="project__desc">
+                An immersive, personalized history experience. Enter your date of birth and journey
+                through an interactive timeline of everything that happened on Earth during your
+                lifetime — science, space, technology, sports, climate and world events — presented
+                on a 3D globe, an interactive world map and animated timelines, with fun stats and an
+                AI chat companion.
+              </p>
+              <ul class="project__features">
+                <li>3D Earth (Three.js / React Three Fiber)</li>
+                <li>Interactive world map with live event locations</li>
+                <li>Category-filtered vertical &amp; horizontal timelines</li>
+                <li>Population graph, comparisons and animated counters</li>
+              </ul>
+              <div class="project__tech">
+                <span>Next.js 14</span><span>React</span><span>TypeScript</span><span>Three.js</span><span>D3.js</span><span>Leaflet</span><span>Tailwind CSS</span><span>Framer Motion</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <span class="project__note">Personal project</span>
+            </div>
+          </article>
+
+          <!-- Project: ResuMatch AI -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🤖</div>
+              <div class="project__labels">
+                <span class="project__label">AI</span>
+                <span class="project__label project__label--alt">Web App</span>
+              </div>
+              <h3 class="project__title">ResuMatch AI</h3>
+              <p class="project__desc">
+                An AI-powered resume analyzer &amp; career optimizer concept — an interactive
+                front-end experience featuring instant ATS scoring, skill-gap analysis,
+                personalized career recommendations, resume templates and a live analyzer demo.
+              </p>
+              <ul class="project__features">
+                <li>ATS score &amp; skill-gap analysis UI</li>
+                <li>Career tools &amp; resume templates</li>
+                <li>Dark / light theme, mobile navigation</li>
+              </ul>
+              <div class="project__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <span class="project__note">Personal project</span>
+            </div>
+          </article>
+
+          <!-- Project: DecodeBank Pakistan -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🏦</div>
+              <div class="project__labels">
+                <span class="project__label">Internship</span>
+                <span class="project__label project__label--alt">Java Desktop</span>
+              </div>
+              <h3 class="project__title">DecodeBank Pakistan</h3>
+              <p class="project__desc">
+                A GUI-based Banking Management System built with Java Swing that simulates basic
+                banking operations in a user-friendly interface, developed during my DecodeLabs
+                internship.
+              </p>
+              <ul class="project__features">
+                <li>Secure login authentication for three accounts</li>
+                <li>Deposit, withdraw &amp; fund transfer</li>
+                <li>Balance display &amp; transaction history</li>
+                <li>Security settings</li>
+              </ul>
+              <div class="project__tech">
+                <span>Java</span><span>Java Swing</span><span>OOP</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/DecodeLabs-internship" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project: Life Replay -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🎬</div>
+              <div class="project__labels">
+                <span class="project__label project__label--alt">Web Experience</span>
+              </div>
+              <h3 class="project__title">Life Replay</h3>
+              <p class="project__desc">
+                A cinematic, Netflix-style landing experience that transforms "your life" into a
+                movie series — complete with a streaming-style UI, episode grids, pricing tiers and
+                smooth in-page navigation.
+              </p>
+              <ul class="project__features">
+                <li>Streaming-platform inspired UI &amp; interactions</li>
+                <li>Loading screen, section transitions</li>
+                <li>Fully responsive</li>
+              </ul>
+              <div class="project__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/Life-Replay" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project: Bulk Order Pricing Calculator -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🧮</div>
+              <div class="project__labels">
+                <span class="project__label">Internship</span>
+                <span class="project__label project__label--alt">Web App</span>
+              </div>
+              <h3 class="project__title">Bulk Order Pricing Calculator</h3>
+              <p class="project__desc">
+                A single-page order-pricing estimator built for the Progee front-end internship —
+                add line items and watch an instant receipt update with discounts, tax, shipping
+                and totals.
+              </p>
+              <ul class="project__features">
+                <li>Live receipt-style summary &amp; cost breakdown bar</li>
+                <li>Volume discount tiers &amp; regional sales tax</li>
+                <li>Promo codes, multi-currency display &amp; print export</li>
+                <li>Dark / light themes</li>
+              </ul>
+              <div class="project__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/progee-task-2" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+              <a class="project__link" href="https://armeenali54.github.io/progee-task-2/" target="_blank" rel="noopener">Live Demo ↗</a>
+            </div>
+          </article>
+
+          <!-- Project: The Foundry -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🛠️</div>
+              <div class="project__labels">
+                <span class="project__label project__label--alt">Web Experience</span>
+              </div>
+              <h3 class="project__title">The Foundry — Catalog No. 07</h3>
+              <p class="project__desc">
+                A premium, editorial-style demo goods catalog with a "book cover" dark band around
+                light catalog pages — featuring a product grid, filtering drawer and cart receipt,
+                all built with careful typography and craft.
+              </p>
+              <ul class="project__features">
+                <li>Editorial typography &amp; catalog layout</li>
+                <li>Product grid with filter drawer &amp; cart</li>
+                <li>Print-friendly cart receipt</li>
+              </ul>
+              <div class="project__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/the-foundry" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project: Hotel Reservation System -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🏨</div>
+              <div class="project__labels">
+                <span class="project__label">Internship</span>
+                <span class="project__label project__label--alt">Java Desktop</span>
+              </div>
+              <h3 class="project__title">Hotel Reservation Management System</h3>
+              <p class="project__desc">
+                A Java application for managing hotel room reservations, built during the CodeAlpha
+                internship to practice core OOP principles and real-world data handling.
+              </p>
+              <div class="project__tech">
+                <span>Java</span><span>OOP</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/CodeAlpha-Task2" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project: Number Guessing Game -->
+          <article class="project reveal">
+            <div class="project__body">
+              <div class="project__icon" aria-hidden="true">🎲</div>
+              <div class="project__labels">
+                <span class="project__label project__label--alt">Java Console</span>
+              </div>
+              <h3 class="project__title">Number Guessing Game</h3>
+              <p class="project__desc">
+                A classic number-guessing game written in Java — an early exercise in loops,
+                conditionals and user input handling that sharpened my fundamentals.
+              </p>
+              <div class="project__tech">
+                <span>Java</span>
+              </div>
+            </div>
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/ArmeenAli54/Java" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Skills ======= -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Skills</p>
+          <h2 class="section__title">My toolbox</h2>
+        </div>
+
+        <div class="skills">
+          <div class="skill-group reveal">
+            <h3 class="skill-group__title">Programming Languages</h3>
+            <div class="skill-group__chips">
+              <span class="chip">Java</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Python <em>beginner</em></span>
+              <span class="chip">TypeScript</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="skill-group__title">Web Development</h3>
+            <div class="skill-group__chips">
+              <span class="chip">Responsive Design</span>
+              <span class="chip">CSS Animations</span>
+              <span class="chip">DOM Manipulation</span>
+              <span class="chip">Web Accessibility</span>
+              <span class="chip">GitHub Pages</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="skill-group__title">Frameworks &amp; Libraries</h3>
+            <div class="skill-group__chips">
+              <span class="chip">React</span>
+              <span class="chip">Next.js 14</span>
+              <span class="chip">Java Swing</span>
+              <span class="chip">Three.js</span>
+              <span class="chip">React Three Fiber</span>
+              <span class="chip">D3.js</span>
+              <span class="chip">React-Leaflet</span>
+              <span class="chip">Framer Motion</span>
+              <span class="chip">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="skill-group__title">AI &amp; Data</h3>
+            <div class="skill-group__chips">
+              <span class="chip">Generative AI</span>
+              <span class="chip">Prompt Engineering</span>
+              <span class="chip">AI Fundamentals <em>IBM</em></span>
+              <span class="chip">Data Analytics</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="skill-group__title">Tools &amp; Platforms</h3>
+            <div class="skill-group__chips">
+              <span class="chip">Git &amp; GitHub</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">npm</span>
+              <span class="chip">Windows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Certifications ======= -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Certifications</p>
+          <h2 class="section__title">Continuous learning</h2>
+          <p class="section__sub">
+            Certificates and courses I've completed — from Generative AI and prompt engineering to
+            cybersecurity and data analytics.
+          </p>
+        </div>
+
+        <div class="certs" id="certsGrid">
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">IBM</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">AI Fundamentals: Language and Vision in AI</h3>
+            <p class="cert__tagline">AI · Language &amp; Vision Models</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">IBM</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">AI Fundamentals: Foundations for AI</h3>
+            <p class="cert__tagline">AI Fundamentals</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">IBM SkillsBuild</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">AI in the Real World</h3>
+            <p class="cert__tagline">Real-world AI applications</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Microsoft</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Explore Generative AI</h3>
+            <p class="cert__tagline">Generative AI · Responsible AI</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">AWS</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Foundations of Prompt Engineering</h3>
+            <p class="cert__tagline">Prompt Engineering · Generative AI</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Simplilearn SkillUp</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Generative AI for Beginners</h3>
+            <p class="cert__tagline">Generative AI</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Forage · Deloitte</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Data Analytics Job Simulation</h3>
+            <p class="cert__tagline">Data Analytics</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Cisco</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Introduction to Cybersecurity</h3>
+            <p class="cert__tagline">Cybersecurity Basics</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Sololearn</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Introduction to Python</h3>
+            <p class="cert__tagline">Python Fundamentals</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">HP LIFE</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">AI for Business Professionals</h3>
+            <p class="cert__tagline">AI in Business</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">DecodeLabs</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Java Programming Virtual Internship</h3>
+            <p class="cert__tagline">Java · OOP · Real-world development</p>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__head">
+              <span class="cert__issuer">Huawei × MUET</span>
+              <span class="cert__year">2026</span>
+            </div>
+            <h3 class="cert__title">Cloud Computing &amp; AI Awareness Seminar</h3>
+            <p class="cert__tagline">Certificate of Participation</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Education ======= -->
+    <section class="section section--alt" id="education">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Education</p>
+          <h2 class="section__title">Academic journey</h2>
+        </div>
+
+        <div class="edu reveal">
+          <div class="edu__badge" aria-hidden="true">MUET</div>
+          <div class="edu__body">
+            <div class="edu__top">
+              <h3 class="edu__degree">B.E. Computer Systems Engineering</h3>
+              <span class="edu__pill">In Progress</span>
+            </div>
+            <p class="edu__school">Mehran University of Engineering &amp; Technology (MUET)</p>
+            <p class="edu__meta">Jamshoro, Sindh, Pakistan · 2025 — Present · Batch of 2029</p>
+            <p class="edu__desc">
+              Currently in my first year of the Computer Systems Engineering program — the class of
+              CSE '29. Building strong foundations in programming, problem solving and the
+              engineering of computer systems, while actively applying what I learn to real-world
+              projects and internships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Community ======= -->
+    <section class="section" id="community">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Community</p>
+          <h2 class="section__title">Beyond the code</h2>
+          <p class="section__sub">
+            Organizations, volunteering and the communities I'm part of.
+          </p>
+        </div>
+
+        <div class="community">
+          <article class="community__card reveal">
+            <div class="community__icon" aria-hidden="true">🎓</div>
+            <h3 class="community__title">AIC ACM Student Chapter</h3>
+            <p class="community__org">Member · MUET</p>
+            <p class="community__desc">
+              Official member of MUET's student-led tech community affiliated with the ACM — the
+              world's largest computing society. Learning, networking and growing with like-minded
+              engineers.
+            </p>
+          </article>
+
+          <article class="community__card reveal">
+            <div class="community__icon" aria-hidden="true">🛡️</div>
+            <h3 class="community__title">Cybersecurity &amp; Ethical Hacking Workshop</h3>
+            <p class="community__org">Volunteer · DarkTrace Academy × AIC ACM MUET</p>
+            <p class="community__desc">
+              Volunteered at the Cybersecurity &amp; Ethical Hacking Awareness Workshop held at MUET,
+              supporting coordination and event management to help build a practical, security-aware
+              learning experience for students.
+            </p>
+          </article>
+
+          <article class="community__card reveal">
+            <div class="community__icon" aria-hidden="true">✍️</div>
+            <h3 class="community__title">She's Beyond</h3>
+            <p class="community__org">Content Writer · July — September 2026</p>
+            <p class="community__desc">
+              Writing content that connects, inspires and creates a positive impact as a Content
+              Writer for the July–September 2026 term.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Contact ======= -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__tag">Contact</p>
+          <h2 class="section__title">Let's build something together</h2>
+          <p class="section__sub">
+            I'm open to internships, projects and collaborations. Let's connect.
+          </p>
+        </div>
+
+        <div class="contact reveal">
+          <a class="contact__card" href="https://www.linkedin.com/in/armeen-ali-37886239a" target="_blank" rel="noopener">
+            <div class="contact__icon contact__icon--in" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+            </div>
+            <h3 class="contact__title">LinkedIn</h3>
+            <p class="contact__value">in/armeen-ali-37886239a</p>
+            <span class="contact__action">Connect ↗</span>
+          </a>
+
+          <a class="contact__card" href="https://github.com/ArmeenAli54" target="_blank" rel="noopener">
+            <div class="contact__icon contact__icon--gh" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </div>
+            <h3 class="contact__title">GitHub</h3>
+            <p class="contact__value">github.com/ArmeenAli54</p>
+            <span class="contact__action">Browse repos ↗</span>
+          </a>
+
+          <div class="contact__card contact__card--static">
+            <div class="contact__icon contact__icon--loc" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="contact__title">Location</h3>
+            <p class="contact__value">Hyderabad, Sindh, Pakistan</p>
+            <span class="contact__action contact__action--muted">Open to remote</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">© <span id="year">2026</span> Armeen Ali Soomro. Built with HTML, CSS &amp; JavaScript.</p>
+      <div class="footer__socials">
+        <a href="https://www.linkedin.com/in/armeen-ali-37886239a" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+        </a>
+        <a href="https://github.com/ArmeenAli54" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
