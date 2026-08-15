@@ -589,12 +589,17 @@ html[data-theme="light"] .section--alt {
   position: relative;
   width: 100%;
   max-width: 440px;
+  border: 3px solid var(--accent);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 34px rgba(109, 40, 217, 0.35), 0 22px 60px rgba(0, 0, 0, 0.55);
 }
 .hero__portrait-frame img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
+  border-radius: 11px;
 }
 
 html[data-theme="light"] .hero::before,
