@@ -595,24 +595,8 @@ html[data-theme="light"] .section--alt {
   height: auto;
   display: block;
   object-fit: cover;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 52%,
-    rgba(0, 0, 0, 0.75) 68%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    #000 52%,
-    rgba(0, 0, 0, 0.75) 68%,
-    transparent 100%
-  );
 }
 
-html[data-theme="light"] .hero__portrait-frame img {
-  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
-}
 html[data-theme="light"] .hero::before,
 html[data-theme="light"] .hero::after {
   background: none;
